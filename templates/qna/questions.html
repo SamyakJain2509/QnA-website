@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block title %}AskMe{% endblock %}
+
+{% block content %}
+{% for question in questions %}
+    <div class="home-question-title">
+        <a href="{% url 'question_detail' question.pk %}"><p>{{ question.title }}</p></a>
+    </div>
+{% endfor %}
+{% endblock %}

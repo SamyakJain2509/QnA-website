@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+
+{% block title %}AskMe - {{ question.title }}{% endblock %}
+
+{% block content %}
+<h1 class="question-title">{{ question.title }}</h1>
+<p class="question">{{ question.question }}</p>
+<hr>
+<h3>Answers to this question</h3>
+<br><br><br><br>
+{% for answer in question.question_answer.all %}
+<p>{{ answer.answer }}</p>
+<small class="text-muted">by {{ answer.author }}</small>
+<hr>
+{% endfor %}
+<h3>Answer this question</h3>
+<form action="" method="post">
+    {% csrf_token %}
+    {{ form|crispy }}
+    <button type="submit" class="btn btn-sm btn-outline-primary">Add answer</button>
+</form>
+{% endblock %}

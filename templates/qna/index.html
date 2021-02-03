@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block title %}Welcome to AskMe{% endblock %}
+
+{% block content %}
+<h1>AskMe</h1>
+<p>The go - to destination to get all your questions answered.</p>
+<div class="total-questions">
+    <p>
+        0<br />
+        <a href="{% url 'questions' %}">Questions</a> asked
+    </p>
+</div>
+<div class="users">
+    <p>
+        0 <br />
+        total users
+    </p>
+</div>
+<p>
+    <a href="{% url 'ask' %}">Ask a question</a>
+</p>
+{% endblock %}
